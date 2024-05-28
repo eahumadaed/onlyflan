@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h1>Productos</h1>
+<ul>
+    {% for producto in productos %}
+        <li>
+            <img src="{{ producto.ruta_imagen }}" alt="{{ producto.nombre }}">
+            <h2>{{ producto.nombre }}</h2>
+            <p>{{ producto.descripcion }}</p>
+            <p>{{ producto.precio }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

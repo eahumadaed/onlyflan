@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyFlan</title>
+</head>
+<body>
+    <header>
+        {% load static %}    
+        <img src="{% static '/img/logo.png' %}" alt="Logo" style="float: left;max-width: 130px;">
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'productos' %}">Productos</a>
+            <a href="{% url 'about' %}">About</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Salir</a>
+                {% if user.nivel == 10 %}
+                    <a href="{% url 'admin_page' %}">Administración</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'login' %}">Entrar</a>
+                <a href="{% url 'register' %}">Registrar</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
