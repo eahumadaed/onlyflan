@@ -11,3 +11,5 @@ media/imagenes_productos/6.jpg
 media/imagenes_productos/5.jpg
 media/imagenes_productos/4.jpg
 onlyflan_page/migrations/0002_remove_producto_ruta_imagen_alter_usuario_groups_and_more.py
+onlyflan.db.sqlite3
+onlyflan_page/migrations/__init__.py
