@@ -1,3 +1,5 @@
+
+python -m venv onlyflan_env
 onlyflan_env\Scripts\activate  
 pip install -r requirements.txt 
 cd onlyflan

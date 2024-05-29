@@ -1,10 +1,12 @@
 {% extends 'main/base.html' %}
 {% block content %}
+{% load static %}
+
 <h1>Productos</h1>
 <ul>
     {% for producto in productos %}
         <li>
-            <img src="{{ producto.ruta_imagen }}" alt="{{ producto.nombre }}">
+            <img src="{{ MEDIA_URL }}imagenes_productos/{{ producto.id }}.jpg" alt="{{ producto.nombre }}">
             <h2>{{ producto.nombre }}</h2>
             <p>{{ producto.descripcion }}</p>
             <p>{{ producto.precio }}</p>

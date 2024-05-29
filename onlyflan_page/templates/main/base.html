@@ -1,30 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnlyFlan</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <header>
-        {% load static %}    
-        <img src="{% static '/img/logo.png' %}" alt="Logo" style="float: left;max-width: 130px;">
-        <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'productos' %}">Productos</a>
-            <a href="{% url 'about' %}">About</a>
-            {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}">Salir</a>
-                {% if user.nivel == 10 %}
-                    <a href="{% url 'admin_page' %}">Administración</a>
-                {% endif %}
-            {% else %}
-                <a href="{% url 'login' %}">Entrar</a>
-                <a href="{% url 'register' %}">Registrar</a>
-            {% endif %}
+        {% load static %}
+        <img src="{% static 'img/logo.png' %}" alt="Logo" style="float: left;max-width: 100px;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}">OnlyFlan</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'productos' %}">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                        {% if user.nivel == 10 %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'admin_page' %}">Administración</a></li>
+                        {% endif %}
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </nav>
     </header>
-    <main>
+    <main class="container mt-5">
         {% block content %}
         {% endblock %}
     </main>
